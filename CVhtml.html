@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Gloria Mindou Dibala | Étudiante en BTS SIO</title>
+    <style>
+        /* Réinitialisation et variables */
+        :root {
+            --primary-color: #1e293b;      /* Bleu ardoise foncé */
+            --accent-color: #2563eb;       /* Bleu professionnel */
+            --text-dark: #334155;          /* Gris anthracite pour le texte */
+            --text-muted: #64748b;         /* Gris moyen pour les dates/lieux */
+            --bg-light: #f8fafc;           /* Fond très clair pour la barre latérale */
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: #e2e8f0;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        /* Conteneur principal format A4 */
+        .cv-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        /* En-tête */
+        header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 2.5rem 2.5rem 2rem;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #93c5fd;
+            font-weight: 500;
+            margin-top: 0.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info {
+            list-style: none;
+            text-align: right;
+            font-size: 0.95rem;
+        }
+
+        .contact-info li {
+            margin-bottom: 0.4rem;
+        }
+
+        .contact-info a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-summary {
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            text-align: justify;
+        }
+
+        /* Corps du CV en deux colonnes */
+        .cv-body {
+            display: grid;
+            grid-template-columns: 32% 68%;
+        }
+
+        /* Colonne de gauche (Compétences, Langues) */
+        aside {
+            background-color: var(--bg-light);
+            padding: 2rem 1.8rem;
+            border-right: 1px solid var(--border-color);
+        }
+
+        /* Colonne de droite (Expériences, Formation) */
+        main {
+            padding: 2rem 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Styles de la barre latérale */
+        .skill-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-group h3 {
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            margin-bottom: 0.4rem;
+        }
+
+        .skill-list, .lang-list {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .skill-list li, .lang-list li {
+            margin-bottom: 0.35rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .skill-list li::before, .lang-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Styles des expériences et formations */
+        .item {
+            margin-bottom: 1.5rem;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .item-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .item-date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            background-color: #eff6ff;
+            padding: 0.15rem 0.6rem;
+            border-radius: 12px;
+        }
+
+        .item-subtitle {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+
+        .item-details {
+            list-style: none;
+            font-size: 0.92rem;
+        }
+
+        .item-details li {
+            margin-bottom: 0.4rem;
+            padding-left: 1.1rem;
+            position: relative;
+        }
+
+        .item-details li::before {
+            content: "▪";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+            top: 2px;
+        }
+
+        /* Adaptation mobile et impression */
+        @media (max-width: 768px) {
+            .cv-body {
+                grid-template-columns: 1fr;
+            }
+            aside {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .contact-info {
+                text-align: left;
+            }
+        }
+
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .cv-container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        <!-- EN-TÊTE -->
+        <header>
+            <div class="header-top">
+                <div>
+                    <h1>Gloria Mindou Dibala</h1>
+                    <p class="subtitle">Étudiante en BTS SIO — Option SLAM</p>
+                </div>
+                <ul class="contact-info">
+                    <li>📧 <a href="mailto:mindougloria@gmail.com">mindougloria@gmail.com</a></li>
+                    <li>📍 Draveil (91)</li>
+                </ul>
+            </div>
+            <p class="profile-summary">
+                Actuellement en 2<sup>e</sup> année de BTS Services Informatiques aux Organisations (option SLAM) au Lycée Parc des Loges à Évry, je me spécialise dans le développement applicatif, la conception et la gestion des données. Rigoureuse, curieuse et dotée d'une forte capacité d'apprentissage, je maîtrise la modélisation de bases de données, le requêtage SQL ainsi que le développement web. Je suis à la recherche d'un stage du <strong>11 janvier au 12 février</strong> afin de mettre en pratique mes compétences techniques et contribuer activement à vos projets informatiques.
+            </p>
+        </header>
+
+        <!-- CORPS DU CV -->
+        <div class="cv-body">
+            
+            <!-- BARRE LATÉRALE -->
+            <aside>
+                <section>
+                    <h2>Compétences</h2>
+                    
+                    <div class="skill-group">
+                        <h3>Développement & Bases de données</h3>
+                        <ul class="skill-list">
+                            <li>HTML5 / CSS3</li>
+                            <li>PHP & notions de JavaScript</li>
+                            <li>SQL & Modélisation Merise</li>
+                            <li>XAMPP, Adminer</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Systèmes & Outils</h3>
+                        <ul class="skill-list">
+                            <li>Environnement Windows</li>
+                            <li>VS Code, GitHub</li>
+                            <li>Google Workspace, Canva</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Certifications</h3>
+                        <ul class="skill-list">
+                            <li>Cisco (Introduction à la Cybersécurité)</li>
+                            <li>SecNumAcadémie (ANSSI)</li>
+                            <li>Atelier RGPD (CNIL)</li>
+                            <li>Certification PIX</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Langues</h2>
+                    <ul class="lang-list">
+                        <li><strong>Français :</strong> Langue maternelle</li>
+                        <li><strong>Anglais :</strong> Niveau B2 (intermédiaire avancé)</li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- CONTENU PRINCIPAL -->
+            <main>
+                <section>
+                    <h2>Expériences Professionnelles</h2>
+
+                    <article class="item">
+                        <div class="item-header">
+                            <h3 class="item-title">Stagiaire Développeuse Web</h3>
+                            <span class="item-date">Mai – Juin 2026</span>
+                        </div>
+                        <p class="item-subtitle">ARBELLA — Évry</p>
+                        <ul class="item-details">
+                            <li><strong>Analyse et conception :</strong> Recueil des besoins et rédaction des spécifications fonctionnelles (cahier des charges).</li>
+                            <li><strong>Développement et données :</strong> Conception de l'architecture du site, intégration des fonctionnalités, modélisation et structuration de la base de données.</li>
+                            <li><strong>Gestion de projet :</strong> Répartition des tâches en équipe, synchronisation du code source et suivi de l'avancement.</li>
+                        </ul>
+                    </article>
+
+                    <article class="item">
+                        <div class="item-header">
+                            <h3 class="item-title">Stagiaire d'observation (Pôle Administratif)</h3>
+                            <span class="item-date">Janvier 2022</span>
+                        </div>
+                        <p class="item-subtitle">Médiathèque — Draveil</p>
+                        <ul class="item-details">
+                            <li><strong>Organisation interne :</strong> Découverte du fonctionnement des services culturels et des protocoles d'accueil du public.</li>
+                            <li><strong>Gestion documentaire :</strong> Tri, classement des fonds et enregistrement informatique des prêts et retours.</li>
+                            <li><strong>Outils numériques :</strong> Initiation au logiciel de gestion de la médiathèque et numérisation des données usagers.</li>
+                        </ul>
+                    </article>
+                </section>
+
+                <section>
+                    <h2>Parcours Scolaire</h2>
+
+                    <article class="item">
+                        <div class="item-header">
+                            <h3 class="item-title">BTS SIO — Option SLAM (2<sup>e</sup> année)</h3>
+                            <span class="item-date">2025 – En cours</span>
+                        </div>
+                        <p class="item-subtitle">Lycée Parc des Loges — Évry</p>
+                        <ul class="item-details">
+                            <li><strong>Spécialisation SLAM :</strong> Solutions Logicielles et Applications Métiers (développement web/applicatif, bases de données Merise/SQL).</li>
+                            <li><strong>Tronc commun :</strong> Notions fondamentales en infrastructure réseau (SISR) et cybersécurité.</li>
+                        </ul>
+                    </article>
+
+                    <article class="item">
+                        <div class="item-header">
+                            <h3 class="item-title">Baccalauréat Technologique STMG (Mention Bien)</h3>
+                            <span class="item-date">2022 – 2025</span>
+                        </div>
+                        <p class="item-subtitle">Lycée Rosa Parks — Montgeron</p>
+                        <ul class="item-details">
+                            <li>Spécialité Marketing — Obtention de la certification PIX.</li>
+                        </ul>
+                    </article>
+
+                    <article class="item">
+                        <div class="item-header">
+                            <h3 class="item-title">Diplôme National du Brevet (Mention Bien)</h3>
+                            <span class="item-date">2021 – 2022</span>
+                        </div>
+                        <p class="item-subtitle">Collège Alphonse Daudet — Draveil</p>
+                        <ul class="item-details">
+                            <li>Obtention de la certification PIX.</li>
+                        </ul>
+                    </article>
+                </section>
+            </main>
+
+        </div>
+    </div>
+
+</body>
+</html>
